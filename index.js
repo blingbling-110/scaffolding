@@ -40,8 +40,9 @@ console.log('\n\nshelljs(js版shell工具)');
 shell.echo('hello world');
 
 console.log('\n\ncommander(接收用户输入的命令)');
+//调用方法：node index.js -V
 const program = new Command();
-program.version('0.0.1');
+// program.version('0.0.1').parse(process.argv);
 
 console.log('\n\nyargs- parser(命令行参数解析工具)');
 //调用方法：node index.js --foo=33 --bar hello
