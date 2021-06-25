@@ -7,6 +7,7 @@ const argv = require('yargs-parser')(process.argv.slice(2))
 const convert = require("./quicktype.js");
 const { detectClones } = require("jscpd");
 const runAll = require("npm-run-all");
+const pug = require('pug');
 
 console.log('\n\nfiglet(简单文字生成工具)');
 console.log(figlet.textSync('blingbling', {
@@ -107,3 +108,8 @@ runAll(["script3", "script4"], { parallel: false })
 
 console.log('\n\nscripty(映射目录执行shell脚本配置)');
 shell.exec('npm run foo:bar');//通过shelljs执行npm脚本来演示
+
+console.log('\n\npug(NodeJS模板引擎)');
+const compiledFunction = pug.compileFile('template.pug');// 编译这份代码
+console.log(compiledFunction({ name: 'blingbling' }));// 渲染一组数据
+console.log(compiledFunction({ name: '110' }));// 渲染另外一组数据
